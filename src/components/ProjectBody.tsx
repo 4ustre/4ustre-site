@@ -27,27 +27,6 @@ export function ProjectBody({ w, smallText }: { w: WorkItem; smallText: CSSPrope
     };
   }, [w]);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const txt = el.querySelector<HTMLElement>(".pTextCol");
-    const img = el.querySelector<HTMLElement>(".pHeroImg figure");
-    if (!txt || !img) return;
-    txt.style.fontSize = "15px";
-    const contentH = () => [...txt.children].reduce((s, c) => s + c.getBoundingClientRect().height, 0) + (txt.children.length > 1 ? 12 : 0);
-    const raf = requestAnimationFrame(() => {
-      let size = 15;
-      for (let i = 0; i < 6; i++) {
-        const ih = img.getBoundingClientRect().height;
-        const th = contentH();
-        if (th <= ih + 2) break;
-        size = Math.max(10, size * (ih / th));
-        txt.style.fontSize = size + "px";
-      }
-    });
-    return () => cancelAnimationFrame(raf);
-  }, [w]);
-
   const heroImg = w.main || w.gallery[0];
   const restGallery = w.main ? w.gallery : w.gallery.slice(1);
   const [firstPara, ...restParas] = w.text.split("\n\n");
