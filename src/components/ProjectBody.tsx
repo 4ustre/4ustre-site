@@ -61,7 +61,7 @@ export function ProjectBody({ w, smallText }: { w: WorkItem; smallText: CSSPrope
                 <p style={{ ...smallText, whiteSpace: "pre-line", fontSize: "inherit", lineHeight: 1.55, margin: "12px 0 0" }}>{renderPara(restParas.join("\n\n"))}</p>
               )}
               {w.heroNote && (
-                <div className="heroNoteBox" style={{ fontSize: 36, lineHeight: 1, fontFamily: "'Hanken Grotesk', Arial, sans-serif", fontStyle: "italic", position: "absolute", left: 0, top: 349 }}>
+                <div className="heroNoteBox" style={{ fontSize: 36, lineHeight: 1, fontFamily: "'Hanken Grotesk', Arial, sans-serif", fontStyle: "italic", marginTop: 24 }}>
                   {w.heroNote}
                 </div>
               )}

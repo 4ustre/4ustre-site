@@ -170,7 +170,7 @@ export const WORK: WorkItem[] = [
   },
   {
     slug: "linkiu",
-    title: "I wish you…",
+    title: "I wish you to…",
     meta: "Personal work",
     client: "Self-initiated",
     heroNote: "I wish you to...",
