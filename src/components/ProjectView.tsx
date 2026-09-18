@@ -4,10 +4,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Nav } from "./Nav";
 import { Label } from "./ds/Label";
-import { ImageFrame } from "./ds/ImageFrame";
 import { ProjectBody } from "./ProjectBody";
 import { WORK } from "@/lib/work";
-import { altFor } from "@/lib/content";
 
 const smallText: CSSProperties = { font: "300 14px/1.6 'Hanken Grotesk', Arial, sans-serif", color: "var(--ink-60)", margin: 0 };
 
@@ -93,9 +91,6 @@ export function ProjectView({ initialSlug }: { initialSlug: string }) {
                 )}
                 {w.sub && <p style={{ font: "400 30px/1.2 'Instrument Serif', Georgia, serif", color: "var(--ink-60)", margin: "0 0 16px" }}>{w.sub}</p>}
                 {w.written && <p style={smallText}>Written by {w.written}</p>}
-              </div>
-              <div style={{ gridColumn: "7/-1" }}>
-                <ImageFrame ratio="4 / 3" fill="var(--paper-deep)" alt={altFor(w)} />
               </div>
             </div>
           </div>

@@ -130,10 +130,10 @@ export const WORK: WorkItem[] = [
     home: [{ src: "/images/work/pins_cover_png.jpg", ratio: "4000 / 3000" }],
     main: { src: "/images/work/pins_cover_png.jpg", ratio: "4000 / 3000", cap: "The pins" },
     gallery: [
-      { src: "/images/work/pins_g1_png.jpg", ratio: "1 / 1", span: 6 },
-      { src: "/images/work/pins_g2_png.jpg", ratio: "1 / 1", span: 6 },
-      { src: "/images/work/pins_owl12_png.jpg", ratio: "1 / 1", span: 6 },
-      { src: "/images/work/pins_owl6_png.jpg", ratio: "1 / 1", span: 6 },
+      { src: "/images/work/pins_g1.webp", ratio: "1 / 1", span: 6 },
+      { src: "/images/work/pins_g2.webp", ratio: "1 / 1", span: 6 },
+      { src: "/images/work/pins_owl12.webp", ratio: "1 / 1", span: 6 },
+      { src: "/images/work/pins_owl6.webp", ratio: "1 / 1", span: 6 },
     ],
     considered: [],
   },
@@ -146,7 +146,7 @@ export const WORK: WorkItem[] = [
     text: "It is a small, embroidered celebration of spring. This drawing was created while impatiently waiting for the end of a long Lithuanian winter — a reminder that the most delicate beauty always follows the longest wait.",
     home: [{ src: "/images/work/spring_cover_png.jpg", ratio: "3 / 2" }],
     main: { src: "/images/work/spring_cover_png.jpg", ratio: "3 / 2" },
-    gallery: [{ src: "/images/work/spring_g1_png.jpg", ratio: "1 / 1", span: 8 }],
+    gallery: [{ src: "/images/work/spring_g1.webp", ratio: "1 / 1", span: 8 }],
     considered: [],
   },
   {
@@ -164,8 +164,8 @@ export const WORK: WorkItem[] = [
       { src: "/images/work/recovery_g2.jpg", ratio: "3 / 2", span: 6 },
     ],
     considered: [
-      { src: "/images/work/recovery_considered1_png.jpg", ratio: "3508 / 2481" },
-      { src: "/images/work/recovery_considered2_png.jpg", ratio: "3508 / 2481" },
+      { src: "/images/work/recovery_considered1.webp", ratio: "3508 / 2481" },
+      { src: "/images/work/recovery_considered2.webp", ratio: "3508 / 2481" },
     ],
   },
   {
