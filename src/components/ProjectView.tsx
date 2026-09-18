@@ -95,7 +95,7 @@ export function ProjectView({ initialSlug }: { initialSlug: string }) {
                 {w.written && <p style={smallText}>Written by {w.written}</p>}
               </div>
               <div style={{ gridColumn: "7/-1" }}>
-                <ImageFrame ratio="4 / 3" fill="var(--paper-deep)" src={w.home[0]?.src} alt={altFor(w)} />
+                <ImageFrame ratio="4 / 3" fill="var(--paper-deep)" alt={altFor(w)} />
               </div>
             </div>
           </div>
