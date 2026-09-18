@@ -1,0 +1,427 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/brand/**",
+              "components/cards/**",
+              "components/core/**",
+              "components/layout/**",
+              "components/media/**",
+              "ui_kits/website/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Instrument Serif|Hanken Grotesk))/i]",
+        "message": "Font not provided by the design system. Available: Instrument Serif, Hanken Grotesk."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|as|disabled|children|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, as, disabled, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|ghost|onField)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary' | 'ghost' | 'onField'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:small|medium|large)$/]",
+        "message": "<Button> size must be one of 'small' | 'medium' | 'large'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='as'] > Literal[value!=/^(?:button|a)$/]",
+        "message": "<Button> as must be one of 'button' | 'a'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Caption'] > JSXAttribute > JSXIdentifier[name!=/^(?:credit|tone|children|key|ref|className|style|children)$/]",
+        "message": "<Caption> doesn't accept that prop. Declared props: credit, tone, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Caption'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:paper|field)$/]",
+        "message": "<Caption> tone must be one of 'paper' | 'field'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ColorField'] > JSXAttribute > JSXIdentifier[name!=/^(?:section|circle|pad|children|key|ref|className|style|children)$/]",
+        "message": "<ColorField> doesn't accept that prop. Declared props: section, circle, pad, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ColorField'] > JSXAttribute[name.name='section'] > Literal[value!=/^(?:rose|grass|plum|sage|cornflower|terracotta|marigold|poppy|ink)$/]",
+        "message": "<ColorField> section must be one of 'rose' | 'grass' | 'plum' | 'sage' | 'cornflower' | 'terracotta' | 'marigold' | 'poppy' | 'ink'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ImageFrame'] > JSXAttribute > JSXIdentifier[name!=/^(?:src|alt|shape|ratio|fill|grain|caption|credit|bleed|key|ref|className|style|children)$/]",
+        "message": "<ImageFrame> doesn't accept that prop. Declared props: src, alt, shape, ratio, fill, grain, caption, credit, bleed."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ImageFrame'] > JSXAttribute[name.name='shape'] > Literal[value!=/^(?:rect|circle)$/]",
+        "message": "<ImageFrame> shape must be one of 'rect' | 'circle'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ImageFrame'] > JSXAttribute[name.name='grain'] > Literal[value!=/^(?:paper|field)$/]",
+        "message": "<ImageFrame> grain must be one of 'paper' | 'field'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ImageFrame'] > JSXAttribute[name.name='bleed'] > Literal[value!=/^(?:none|left|right)$/]",
+        "message": "<ImageFrame> bleed must be one of 'none' | 'left' | 'right'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Label'] > JSXAttribute > JSXIdentifier[name!=/^(?:tone|rule|as|children|key|ref|className|style|children)$/]",
+        "message": "<Label> doesn't accept that prop. Declared props: tone, rule, as, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Label'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:muted|ink|accent|field)$/]",
+        "message": "<Label> tone must be one of 'muted' | 'ink' | 'accent' | 'field'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Logo'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|tone|clearspace|title|key|ref|className|style|children)$/]",
+        "message": "<Logo> doesn't accept that prop. Declared props: variant, size, tone, clearspace, title."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Logo'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:mark|lockup|stamp)$/]",
+        "message": "<Logo> variant must be one of 'mark' | 'lockup' | 'stamp'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ProjectCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|meta|src|alt|shape|ratio|fill|href|key|ref|className|style|children)$/]",
+        "message": "<ProjectCard> doesn't accept that prop. Declared props: title, meta, src, alt, shape, ratio, fill, href."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ProjectCard'] > JSXAttribute[name.name='shape'] > Literal[value!=/^(?:rect|circle)$/]",
+        "message": "<ProjectCard> shape must be one of 'rect' | 'circle'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute > JSXIdentifier[name!=/^(?:tone|children|key|ref|className|style|children)$/]",
+        "message": "<Tag> doesn't accept that prop. Declared props: tone, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:outline|quiet|field|accent)$/]",
+        "message": "<Tag> tone must be one of 'outline' | 'quiet' | 'field' | 'accent'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "Caption": {
+        "replaces": []
+      },
+      "ColorField": {
+        "replaces": []
+      },
+      "ImageFrame": {
+        "replaces": []
+      },
+      "Label": {
+        "replaces": []
+      },
+      "Logo": {
+        "replaces": []
+      },
+      "ProjectCard": {
+        "replaces": []
+      },
+      "Tag": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent-alarm",
+      "--accent-primary",
+      "--accent-small",
+      "--border-hairline",
+      "--border-rule",
+      "--content-max",
+      "--cornflower",
+      "--deep-grass",
+      "--font-display",
+      "--font-text",
+      "--gap-block",
+      "--gap-label-title",
+      "--gap-section",
+      "--gap-title-body",
+      "--grain-blend",
+      "--grain-opacity-field",
+      "--grain-opacity-max",
+      "--grain-opacity-paper",
+      "--grain-size",
+      "--grain-url",
+      "--grid-columns",
+      "--grid-gutter",
+      "--ink",
+      "--ink-08",
+      "--ink-14",
+      "--ink-38",
+      "--ink-60",
+      "--lh-body",
+      "--lh-caption",
+      "--lh-display-1",
+      "--lh-display-2",
+      "--lh-display-3",
+      "--lh-label",
+      "--lh-lead",
+      "--lh-small",
+      "--lh-title-1",
+      "--lh-title-2",
+      "--lh-title-3",
+      "--line-hairline",
+      "--line-on-field",
+      "--line-rule",
+      "--logo-clearspace",
+      "--logo-min-digital",
+      "--margin-page",
+      "--margin-page-narrow",
+      "--margin-page-wide",
+      "--marigold",
+      "--measure-lead",
+      "--measure-text",
+      "--motion-base",
+      "--motion-ease",
+      "--motion-fast",
+      "--motion-slow",
+      "--night-plum",
+      "--oyster-rose",
+      "--pad-card",
+      "--pad-field",
+      "--paper",
+      "--paper-24",
+      "--paper-70",
+      "--paper-deep",
+      "--paper-shadow",
+      "--poppy",
+      "--radius-circle",
+      "--radius-none",
+      "--radius-pill",
+      "--radius-soft",
+      "--sage",
+      "--section-cornflower",
+      "--section-grass",
+      "--section-plum",
+      "--section-rose",
+      "--section-sage",
+      "--section-terracotta",
+      "--shadow-none",
+      "--size-body",
+      "--size-caption",
+      "--size-display-1",
+      "--size-display-2",
+      "--size-display-3",
+      "--size-label",
+      "--size-lead",
+      "--size-small",
+      "--size-title-1",
+      "--size-title-2",
+      "--size-title-3",
+      "--space-1",
+      "--space-10",
+      "--space-11",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--space-9",
+      "--surface-card",
+      "--surface-field",
+      "--surface-inverse",
+      "--surface-page",
+      "--surface-sunk",
+      "--terracotta",
+      "--text-accent",
+      "--text-body",
+      "--text-display",
+      "--text-muted",
+      "--text-on-field",
+      "--track-display-1",
+      "--track-display-2",
+      "--track-display-3",
+      "--track-label",
+      "--track-title-1",
+      "--track-title-2",
+      "--track-title-3",
+      "--type-body",
+      "--type-body-strong",
+      "--type-caption",
+      "--type-display",
+      "--type-hero",
+      "--type-label",
+      "--type-lead",
+      "--type-subtitle",
+      "--type-title",
+      "--weight-light",
+      "--weight-medium",
+      "--weight-regular"
+    ],
+    "tokenKinds": {
+      "--paper": "color",
+      "--ink": "color",
+      "--oyster-rose": "color",
+      "--deep-grass": "color",
+      "--night-plum": "color",
+      "--sage": "color",
+      "--cornflower": "color",
+      "--marigold": "color",
+      "--poppy": "color",
+      "--terracotta": "color",
+      "--paper-deep": "color",
+      "--paper-shadow": "shadow",
+      "--ink-60": "color",
+      "--ink-38": "color",
+      "--ink-14": "color",
+      "--ink-08": "color",
+      "--paper-24": "color",
+      "--paper-70": "color",
+      "--surface-page": "color",
+      "--surface-card": "color",
+      "--surface-sunk": "color",
+      "--surface-field": "color",
+      "--surface-inverse": "color",
+      "--text-body": "font",
+      "--text-display": "font",
+      "--text-muted": "font",
+      "--text-on-field": "font",
+      "--text-accent": "font",
+      "--line-hairline": "color",
+      "--line-rule": "color",
+      "--line-on-field": "color",
+      "--accent-primary": "color",
+      "--accent-small": "color",
+      "--accent-alarm": "color",
+      "--section-rose": "color",
+      "--section-grass": "color",
+      "--section-plum": "color",
+      "--section-sage": "color",
+      "--section-cornflower": "color",
+      "--section-terracotta": "color",
+      "--font-display": "font",
+      "--font-text": "font",
+      "--weight-light": "font",
+      "--weight-regular": "font",
+      "--weight-medium": "font",
+      "--size-display-1": "spacing",
+      "--lh-display-1": "other",
+      "--track-display-1": "other",
+      "--size-display-2": "spacing",
+      "--lh-display-2": "other",
+      "--track-display-2": "other",
+      "--size-display-3": "spacing",
+      "--lh-display-3": "other",
+      "--track-display-3": "other",
+      "--size-title-1": "spacing",
+      "--lh-title-1": "other",
+      "--track-title-1": "other",
+      "--size-title-2": "spacing",
+      "--lh-title-2": "other",
+      "--track-title-2": "other",
+      "--size-title-3": "spacing",
+      "--lh-title-3": "other",
+      "--track-title-3": "other",
+      "--size-lead": "spacing",
+      "--lh-lead": "other",
+      "--size-body": "spacing",
+      "--lh-body": "other",
+      "--size-small": "spacing",
+      "--lh-small": "other",
+      "--size-caption": "spacing",
+      "--lh-caption": "other",
+      "--size-label": "spacing",
+      "--lh-label": "other",
+      "--track-label": "other",
+      "--type-hero": "font",
+      "--type-display": "font",
+      "--type-title": "font",
+      "--type-subtitle": "font",
+      "--type-lead": "font",
+      "--type-body": "font",
+      "--type-body-strong": "font",
+      "--type-caption": "font",
+      "--type-label": "font",
+      "--measure-text": "other",
+      "--measure-lead": "other",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--space-9": "spacing",
+      "--space-10": "spacing",
+      "--space-11": "spacing",
+      "--gap-label-title": "spacing",
+      "--gap-title-body": "spacing",
+      "--gap-block": "spacing",
+      "--gap-section": "spacing",
+      "--pad-card": "spacing",
+      "--pad-field": "spacing",
+      "--radius-none": "radius",
+      "--radius-soft": "radius",
+      "--radius-pill": "radius",
+      "--radius-circle": "radius",
+      "--border-hairline": "spacing",
+      "--border-rule": "spacing",
+      "--shadow-none": "shadow",
+      "--grain-url": "other",
+      "--grain-size": "other",
+      "--grain-opacity-paper": "other",
+      "--grain-opacity-field": "other",
+      "--grain-opacity-max": "other",
+      "--grain-blend": "other",
+      "--grid-columns": "other",
+      "--grid-gutter": "spacing",
+      "--margin-page": "spacing",
+      "--margin-page-wide": "spacing",
+      "--margin-page-narrow": "spacing",
+      "--content-max": "spacing",
+      "--logo-min-digital": "spacing",
+      "--logo-clearspace": "other",
+      "--motion-ease": "other",
+      "--motion-fast": "other",
+      "--motion-base": "other",
+      "--motion-slow": "other"
+    },
+    "fontFamilies": [
+      "Hanken Grotesk",
+      "Instrument Serif"
+    ]
+  }
+}

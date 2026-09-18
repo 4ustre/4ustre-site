@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Austė Vagoraitė</title>
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/colors.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/typography.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/texture.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/layout.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/base.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/styles.css">
+<style>
+body{margin:0;background:var(--paper);color:var(--ink);font:300 17px/1.62 'Hanken Grotesk',Arial,sans-serif}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink-38);transition:border-color 240ms cubic-bezier(.22,.61,.36,1),color 240ms cubic-bezier(.22,.61,.36,1)}
+a:hover{color:var(--ink);border-bottom-color:var(--accent-primary)}
+.page{max-width:1440px;margin:0 auto;padding:32px 96px 128px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding-bottom:96px}
+.navlinks{display:flex;gap:32px}
+.navlink{background:none;border:0;padding:0;cursor:pointer;font:500 12px/1.2 'Hanken Grotesk',Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-60);transition:color 240ms cubic-bezier(.22,.61,.36,1)}
+.navlink:hover,.navlink[aria-current="page"]{color:var(--ink)}
+.logobtn{background:none;border:0;padding:0;cursor:pointer;color:var(--ink)}
+h1,h2,h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;margin:0}
+p{text-wrap:pretty}
+.grid12{display:grid;grid-template-columns:repeat(12,1fr);gap:32px}
+.workgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 32px}
+@media (max-width:1080px){.page{padding:32px 40px 96px}.workgrid{grid-template-columns:repeat(2,1fr)}}
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/_ds_bundle.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const {Logo,Button,Label,Tag,Caption,ImageFrame,ProjectCard,ColorField}=window.Ds4ustreDesignSystem_43cae6;
+const {useState}=React;
+
+const WORK=[
+ {title:"Debesų knyga",meta:"2025 · Book cover",section:"terracotta",ratio:"3 / 4"},
+ {title:"Elena & Jonas",meta:"2024 · Wedding stationery",section:"sage",ratio:"3 / 4"},
+ {title:"A quiet week in Vilnius",meta:"2025 · Editorial",section:"cornflower",ratio:"3 / 4"},
+ {title:"The Chips Critics Club",meta:"2023 – now · Side project",section:"plum",ratio:"3 / 4"},
+ {title:"Sodas",meta:"2024 · Identity",section:"grass",ratio:"3 / 4"},
+ {title:"Three crows, one pin",meta:"2023 · Enamel pins",section:"rose",ratio:"3 / 4"}
+];
+
+function Nav({page,go}){
+ const items=[["work","Work"],["about","About"],["contact","Contact"]];
+ return (<header className="nav">
+  <button className="logobtn" onClick={()=>go("home")} aria-label="Home"><Logo variant="mark" size={44}/></button>
+  <nav className="navlinks">{items.map(([id,label])=>(
+   <button key={id} className="navlink" aria-current={page===id?"page":undefined} onClick={()=>go(id)}>{label}</button>
+  ))}</nav>
+ </header>);
+}
+
+function Home({go}){
+ return (<div data-section="rose" style={{minHeight:"100vh",display:"flex",flexDirection:"column",padding:"48px 96px 64px",boxSizing:"border-box"}}>
+  <div style={{display:"flex",justifyContent:"flex-end"}}>
+   <nav className="navlinks">
+    <button className="navlink" onClick={()=>go("work")}>Work</button>
+    <button className="navlink" onClick={()=>go("about")}>About</button>
+    <button className="navlink" onClick={()=>go("contact")}>Contact</button>
+   </nav>
+  </div>
+  <div style={{flex:1,display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",textAlign:"center",gap:40}}>
+   <Logo variant="mark" size={148}/>
+   <div>
+    <h1 style={{fontSize:88,lineHeight:.98,letterSpacing:"-0.02em",margin:0}}>Austė Vagoraitė</h1>
+    <p style={{font:"300 22px/1.5 'Hanken Grotesk',Arial,sans-serif",margin:"20px 0 0",color:"var(--ink-60)"}}>thinking world into images</p>
+   </div>
+  </div>
+  <div style={{display:"flex",justifyContent:"center"}}>
+   <Button variant="ghost" onClick={()=>go("work")}>See the work →</Button>
+  </div>
+ </div>);
+}
+
+function Work({go}){
+ return (<div data-section="terracotta" className="page">
+  <Nav page="work" go={go}/>
+  <div className="grid12" style={{marginBottom:96}}>
+   <div style={{gridColumn:"1/8"}}>
+    <Label rule>Selected work</Label>
+    <h1 style={{fontSize:72,lineHeight:1,letterSpacing:"-0.02em",margin:"24px 0 0"}}>Books, magazines and people <em>getting married.</em></h1>
+   </div>
+   <p style={{gridColumn:"9/-1",alignSelf:"end",margin:0,color:"var(--ink-60)"}}>Six pieces from the last three years. Most started on paper and ended up printed on something uncoated.</p>
+  </div>
+  <div className="workgrid">
+   {WORK.map(w=>(<div key={w.title} data-section={w.section}>
+    <ProjectCard title={w.title} meta={w.meta} ratio={w.ratio} alt={w.title}/>
+   </div>))}
+  </div>
+ </div>);
+}
+
+function About({go}){
+ return (<div data-section="sage" className="page">
+  <Nav page="about" go={go}/>
+  <section className="grid12" style={{alignItems:"start",marginBottom:128}}>
+   <div style={{gridColumn:"1/7"}}>
+    <Label rule>About</Label>
+    <h1 style={{fontSize:64,lineHeight:1.02,letterSpacing:"-0.02em",margin:"24px 0 32px"}}>I draw in Vilnius.</h1>
+    <p style={{font:"300 22px/1.5 'Hanken Grotesk',Arial,sans-serif",maxWidth:"38ch",margin:"0 0 24px"}}>I make illustration, book covers, identities and wedding stationery. Gouache and pastel on rough paper, then whatever the printer allows.</p>
+    <p style={{maxWidth:"62ch",margin:"0 0 20px",color:"var(--ink-60)"}}>I studied graphic design and never quite stopped drawing, so the two ended up in the same practice. A cover usually begins as one small painting and gets thrown away twice before it is right.</p>
+    <p style={{maxWidth:"62ch",margin:"0 0 32px",color:"var(--ink-60)"}}>Outside commissions I run The Chips Critics Club with a friend. One bag a week, notes taken far too seriously.</p>
+    <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+     <Tag tone="outline">Illustration</Tag><Tag tone="outline">Book covers</Tag><Tag tone="outline">Identity</Tag><Tag tone="outline">Stationery</Tag>
+    </div>
+   </div>
+   <div style={{gridColumn:"8/-1"}}>
+    <ImageFrame shape="circle" alt="Austė in the studio"/>
+    <div style={{marginTop:16}}><Caption credit="Photograph pending">Austė in the studio, Vilnius</Caption></div>
+   </div>
+  </section>
+  <section className="grid12">
+   <div style={{gridColumn:"1/5"}}><Label>Clients</Label>
+    <p style={{margin:"16px 0 0",color:"var(--ink-60)"}}>Tyto alba · Kitos knygos · NARA · private commissions</p></div>
+   <div style={{gridColumn:"5/9"}}><Label>Teaching</Label>
+    <p style={{margin:"16px 0 0",color:"var(--ink-60)"}}>Illustration workshops, VDA, since 2023</p></div>
+   <div style={{gridColumn:"9/-1"}}><Label>Elsewhere</Label>
+    <p style={{margin:"16px 0 0"}}><a href="#">Instagram</a> · <a href="#">Behance</a></p></div>
+  </section>
+ </div>);
+}
+
+function Contact({go}){
+ return (<div data-section="grass" className="page">
+  <Nav page="contact" go={go}/>
+  <ColorField section="grass" circle pad="96px" style={{marginBottom:64}}>
+   <div style={{textAlign:"center"}}>
+    <div style={{font:"500 12px/1.2 'Hanken Grotesk',Arial,sans-serif",letterSpacing:".16em",textTransform:"uppercase",marginBottom:16}}>Contact</div>
+    <h1 style={{fontSize:44,lineHeight:1.06,margin:"0 0 16px",maxWidth:"18ch"}}>If you have an idea, I'd love to see where we could take it.</h1>
+    <p style={{font:"300 17px/1.62 'Hanken Grotesk',Arial,sans-serif",maxWidth:"26ch",margin:"0 auto"}}>Books, covers, editorial, weddings. Tell me the deadline early.</p>
+   </div>
+  </ColorField>
+  <section className="grid12">
+   <div style={{gridColumn:"1/5"}}><Label>Email</Label>
+    <p style={{font:"400 28px/1.2 'Instrument Serif',Georgia,serif",margin:"16px 0 0"}}><a href="mailto:labas@4ustre.lt">labas@4ustre.lt</a></p></div>
+   <div style={{gridColumn:"5/9"}}><Label>Studio</Label>
+    <p style={{margin:"16px 0 0",color:"var(--ink-60)"}}>Vilnius, Lithuania<br/>Visits by arrangement</p></div>
+   <div style={{gridColumn:"9/-1"}}><Label>Now</Label>
+    <p style={{margin:"16px 0 24px",color:"var(--ink-60)"}}>Taking commissions from October.</p>
+    <Button variant="primary" as="a" href="mailto:labas@4ustre.lt">Send it</Button></div>
+  </section>
+ </div>);
+}
+
+function App(){
+ const [page,setPage]=useState("home");
+ const go=p=>{setPage(p);window.scrollTo(0,0)};
+ const P={home:Home,work:Work,about:About,contact:Contact}[page];
+ return <P go={go}/>;
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>

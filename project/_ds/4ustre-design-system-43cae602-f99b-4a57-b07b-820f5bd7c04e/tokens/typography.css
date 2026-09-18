@@ -1,0 +1,41 @@
+/* 4ustre typography.
+   Instrument Serif — display and titles. Regular and italic only, never bolded.
+   Hanken Grotesk — body, captions, labels. Light 300 long text, Medium 500 labels.
+   Left-aligned as a rule. No all-caps headlines, no letter-spaced body, no underlines. */
+:root {
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-text: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+
+  --weight-light: 300; /* @kind font */
+  --weight-regular: 400; /* @kind font */
+  --weight-medium: 500; /* @kind font */
+
+  /* Display scale — serif, tight leading, −0.02em tracking above 60px */
+  --size-display-1: 112px; --lh-display-1: 0.94; /* @kind other */ --track-display-1: -0.02em; /* @kind other */
+  --size-display-2: 84px;  --lh-display-2: 0.96; /* @kind other */ --track-display-2: -0.02em; /* @kind other */
+  --size-display-3: 64px;  --lh-display-3: 1.0; /* @kind other */  --track-display-3: -0.02em; /* @kind other */
+  --size-title-1: 44px;    --lh-title-1: 1.06; /* @kind other */   --track-title-1: -0.01em; /* @kind other */
+  --size-title-2: 32px;    --lh-title-2: 1.12; /* @kind other */   --track-title-2: -0.01em; /* @kind other */
+  --size-title-3: 24px;    --lh-title-3: 1.2; /* @kind other */    --track-title-3: 0; /* @kind other */
+
+  /* Text scale — grotesk */
+  --size-lead: 22px;   --lh-lead: 1.5; /* @kind other */
+  --size-body: 17px;   --lh-body: 1.62; /* @kind other */
+  --size-small: 15px;  --lh-small: 1.55; /* @kind other */
+  --size-caption: 13px;--lh-caption: 1.45; /* @kind other */
+  --size-label: 12px;  --lh-label: 1.2; /* @kind other */  --track-label: 0.16em; /* @kind other */
+
+  /* Semantic type aliases */
+  --type-hero: var(--weight-regular) var(--size-display-1) / var(--lh-display-1) var(--font-display);
+  --type-display: var(--weight-regular) var(--size-display-2) / var(--lh-display-2) var(--font-display);
+  --type-title: var(--weight-regular) var(--size-title-1) / var(--lh-title-1) var(--font-display);
+  --type-subtitle: var(--weight-regular) var(--size-title-3) / var(--lh-title-3) var(--font-display);
+  --type-lead: var(--weight-light) var(--size-lead) / var(--lh-lead) var(--font-text);
+  --type-body: var(--weight-light) var(--size-body) / var(--lh-body) var(--font-text);
+  --type-body-strong: var(--weight-medium) var(--size-body) / var(--lh-body) var(--font-text);
+  --type-caption: var(--weight-light) var(--size-caption) / var(--lh-caption) var(--font-text);
+  --type-label: var(--weight-medium) var(--size-label) / var(--lh-label) var(--font-text);
+
+  --measure-text: 62ch; /* @kind other */      /* long-form line length ceiling */
+  --measure-lead: 44ch; /* @kind other */
+}

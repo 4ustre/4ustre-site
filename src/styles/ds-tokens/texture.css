@@ -1,0 +1,27 @@
+/* 4ustre texture. Flat colour is always slightly disturbed by a soft paper grain,
+   multiplied at 12–20% — like pastel on a rough sheet. Never a gradient, glow or shadow.
+
+   Recipe: put .grain (or --grain-url as a background-image) as a pseudo-element over
+   any flat fill. 0.12 on light paper, up to 0.20 on a saturated section colour. */
+:root {
+  --grain-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E"); /* @kind other */
+  --grain-size: 160px; /* @kind other */
+  --grain-opacity-paper: 0.12; /* @kind other */
+  --grain-opacity-field: 0.18; /* @kind other */
+  --grain-opacity-max: 0.2; /* @kind other */
+  --grain-blend: multiply; /* @kind other */
+}
+
+.grain { position: relative; }
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--grain-url);
+  background-size: var(--grain-size) var(--grain-size);
+  mix-blend-mode: var(--grain-blend);
+  opacity: var(--grain-opacity-paper);
+  border-radius: inherit;
+}
+.grain--field::after { opacity: var(--grain-opacity-field); }

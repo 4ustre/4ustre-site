@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Austė Vagoraitė</title>
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/colors.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/typography.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/texture.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/layout.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/tokens/base.css">
+<link rel="stylesheet" href="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/styles.css">
+<style>
+body{margin:0;background:var(--paper);color:var(--ink);font:300 17px/1.62 'Hanken Grotesk',Arial,sans-serif}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink-38);transition:border-color 240ms cubic-bezier(.22,.61,.36,1),color 240ms cubic-bezier(.22,.61,.36,1)}
+a:hover{color:var(--ink);border-bottom-color:var(--accent-primary)}
+.page{max-width:1440px;margin:0 auto;padding:32px 96px 128px}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-bottom:96px}
+.nav>.navlinks{grid-column:2}
+.navlinks{display:flex;gap:32px}
+.navlink{background:none;border:0;padding:0;cursor:pointer;font:500 12px/1.2 'Hanken Grotesk',Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-60);transition:color 240ms cubic-bezier(.22,.61,.36,1)}
+.navlink:hover,.navlink[aria-current="page"]{color:var(--ink)}
+.logobtn{background:none;border:0;padding:0;cursor:pointer;color:var(--ink)}
+h1,h2,h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;margin:0}
+p{text-wrap:pretty}
+.grid12{display:grid;grid-template-columns:repeat(12,1fr);gap:32px}
+.workgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 32px}
+@media (max-width:1080px){.page{padding:32px 40px 96px}.workgrid{grid-template-columns:repeat(2,1fr)}}
+.workband{background:var(--surface-field);position:relative}
+.workband:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:var(--grain-url);mix-blend-mode:multiply;opacity:.18}
+.workband>*{position:relative;z-index:1}
+.zoomcard{display:block;width:100%;text-align:left;background:none;border:0;padding:0;cursor:pointer;color:inherit}
+.zoomclip{overflow:hidden;aspect-ratio:1/1}
+.zoomclip>*{height:100%;transition:transform 240ms cubic-bezier(.22,.61,.36,1)}
+.zoomcard:hover .zoomclip>*{transform:scale(1.04)}
+.zoomcard:focus-visible{outline:1px solid var(--ink);outline-offset:8px}
+.hero-letter{display:inline-block;will-change:transform}
+.hero-word{display:inline-block;will-change:transform}
+.taglineWrap{width:100vw;margin-left:calc(50% - 50vw);overflow:hidden}
+.taglineRun{display:flex;width:max-content;gap:70vw;padding-left:50vw;will-change:transform}
+.taglineRun p{white-space:nowrap;flex:0 0 auto;max-width:none;margin:20px 0 0;font:300 22px/1.5 'Hanken Grotesk',Arial,sans-serif;color:var(--ink-60)}
+.ftbounce{will-change:transform}
+.hgal{position:relative}
+.hstage{height:100vh;display:flex;align-items:center;overflow:hidden}
+.htrack{display:flex;gap:64px;padding:0 96px;align-items:center;will-change:transform}
+.hitem{flex:0 0 auto;width:clamp(280px,34vw,460px)}
+.ppanel{position:relative}
+.pcover{height:100vh;display:flex;align-items:center;background:var(--paper);pointer-events:none;will-change:transform,opacity}
+.pcover-in{width:100%;max-width:1440px;margin:0 auto;padding:0 96px;display:grid;grid-template-columns:repeat(12,1fr);gap:32px;align-items:center}
+.pnext{display:flex;align-items:center;gap:16px;font:500 12px/1.2 'Hanken Grotesk',Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-60)}
+.pnext:before{content:"";width:64px;height:1px;background:var(--ink-38)}
+@media (max-width:1080px){.pcover-in{padding:0 40px}}
+.sheet{position:fixed;inset:0;z-index:20;display:flex;justify-content:flex-end;background:var(--ink-38)}
+.sheetinner{width:min(720px,92vw);background:var(--paper);overflow-y:auto;padding:64px}
+.closebtn{background:none;border:0;padding:0;cursor:pointer;font:500 12px/1.2 'Hanken Grotesk',Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-60)}
+.closebtn:hover{color:var(--ink)}
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/4ustre-design-system-43cae602-f99b-4a57-b07b-820f5bd7c04e/_ds_bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const {Logo,Button,Label,Tag,Caption,ImageFrame,ProjectCard,ColorField}=window.Ds4ustreDesignSystem_43cae6;
+const {useState,useEffect,useRef}=React;
+if(window.gsap&&window.ScrollTrigger)gsap.registerPlugin(ScrollTrigger);
+
+const WORK=[
+ {title:"Debesų knyga",meta:"2025 · Book cover",client:"Tyto alba",text:"A cover for Rasa's second novel. Gouache on rough paper, three greens and one crow. Printed on uncoated cream stock, two passes."},
+ {title:"Elena & Jonas",meta:"2024 · Wedding stationery",client:"Private commission",text:"Invitation, menu and place cards. Letterpress, two passes, hand-painted borders redrawn at size."},
+ {title:"A quiet week in Vilnius",meta:"2025 · Editorial",client:"NARA",text:"Five spot illustrations for a week-long city diary. Pastel, drawn on location and finished in the studio."},
+ {title:"The Chips Critics Club",meta:"2023 – now · Side project",client:"Self-initiated",text:"Two people, one bag of crisps a week, notes taken far too seriously. I draw every bag we review."},
+ {title:"Sodas",meta:"2024 · Identity",client:"Sodas bakery",text:"A mark, a stamp and a set of bag illustrations for a bakery in Užupis. Everything drawn, nothing typeset twice."},
+ {title:"Three crows, one pin",meta:"2023 · Enamel pins",client:"Self-initiated",text:"A run of three enamel pins from an unused cover sketch. Restocked when I remember."}
+];
+
+function Nav({page,go}){
+ const items=[["work","Work"],["about","About"],["contact","Contact"]];
+ return (<header className="nav">
+  <button className="logobtn" onClick={()=>go("home")} aria-label="Home"><Logo variant="mark" size={44}/></button>
+  <nav className="navlinks">{items.map(([id,label])=>(
+   <button key={id} className="navlink" aria-current={page===id?"page":undefined} onClick={()=>go(id)}>{label}</button>
+  ))}</nav>
+ </header>);
+}
+
+function WorkSheet({item,close,go}){
+ if(!item)return null;
+ return (<div className="sheet" onClick={close}>
+  <div className="sheetinner" onClick={e=>e.stopPropagation()}>
+   <div style={{display:"flex",justifyContent:"flex-end",marginBottom:32}}><button className="closebtn" onClick={close}>Close</button></div>
+   <Label rule>{item.meta}</Label>
+   <h2 style={{fontSize:52,lineHeight:1.02,letterSpacing:"-0.02em",margin:"24px 0 32px"}}>{item.title}</h2>
+   <div style={{marginBottom:24}}><ImageFrame ratio="1 / 1" fill="var(--paper-deep)" alt={item.title}/></div>
+   <Caption credit={item.client}>{item.title}</Caption>
+   <p style={{font:"300 20px/1.55 'Hanken Grotesk',Arial,sans-serif",maxWidth:"52ch",margin:"32px 0 32px"}}>{item.text}</p>
+   <Button variant="primary" onClick={()=>{close();go("project",item)}}>See the project</Button>
+  </div>
+ </div>);
+}
+
+function Home({go}){
+ const [open,setOpen]=useState(null);
+ const galRef=useRef(null),trackRef=useRef(null);
+ useEffect(()=>{
+  if(!window.gsap||!window.ScrollTrigger)return;
+  const track=trackRef.current,gal=galRef.current;
+  const ctx=gsap.context(()=>{
+   const dist=()=>Math.max(0,track.scrollWidth-window.innerWidth);
+   gsap.to(track,{x:()=>-dist(),ease:"none",scrollTrigger:{trigger:gal,start:"top top",end:()=>"+="+dist(),pin:true,scrub:.6,invalidateOnRefresh:true,anticipatePin:1}});
+  },gal);
+  const t=setTimeout(()=>ScrollTrigger.refresh(),300);
+  const fctx=gsap.context(()=>{gsap.from(".ftbounce",{y:120,opacity:0,duration:1.1,ease:"elastic.out(0.9,0.5)",scrollTrigger:{trigger:".ftbounce",start:"top 92%",once:true}})});
+  return()=>{clearTimeout(t);ctx.revert();fctx.revert()};
+ },[]);
+ const heroRef=useRef(null);
+ useEffect(()=>{
+  if(!window.gsap)return;
+  const ctx=gsap.context(()=>{
+   const tl=gsap.timeline({defaults:{ease:"power3.out"}});
+   tl.from(".hero-logo",{scale:3.4,opacity:0,duration:.9,ease:"elastic.out(0.85,0.62)"})
+     .from(".hero-logo",{rotation:-6,duration:.5,ease:"back.out(3)"},"-=0.45")
+     .from(".hero-letter",{yPercent:120,rotation:i=>i%2?9:-9,opacity:0,duration:.55,stagger:{each:.035,from:"start"},ease:"back.out(2.6)"},"-=0.25")
+     .from(".hero-word",{y:14,opacity:0,duration:.4,stagger:.06},"-=0.15");
+   if(window.ScrollTrigger){
+    const run=heroRef.current.querySelector(".taglineRun"),p1=run.querySelector("p");
+    const base=()=>-p1.offsetWidth/2;
+    gsap.set(run,{x:base()});
+    gsap.fromTo(run,{x:base()},{x:()=>base()-window.innerWidth*.5,ease:"none",scrollTrigger:{trigger:heroRef.current,start:"top top",end:"bottom top",scrub:.5,invalidateOnRefresh:true}});
+   }
+  },heroRef);
+  return()=>ctx.revert();
+ },[]);
+ const toWork=()=>{const el=document.getElementById("work");if(el)window.scrollTo({top:el.offsetTop,behavior:"smooth"})};
+ return (<div>
+  <div ref={heroRef} data-section="rose" style={{minHeight:"100vh",display:"flex",flexDirection:"column",padding:"48px 96px 64px",boxSizing:"border-box"}}>
+   <div style={{display:"flex",justifyContent:"center"}}>
+    <nav className="navlinks">
+     <button className="navlink" onClick={()=>go("work")}>Work</button>
+     <button className="navlink" onClick={()=>go("about")}>About</button>
+     <button className="navlink" onClick={()=>go("contact")}>Contact</button>
+    </nav>
+   </div>
+   <div style={{flex:1,display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",textAlign:"center",gap:40}}>
+    <div className="hero-logo"><Logo variant="mark" size={148}/></div>
+    <div>
+     <h1 style={{fontSize:88,lineHeight:.98,letterSpacing:"-0.02em",margin:0,overflow:"hidden",padding:"0 0 .08em"}}>{"Austė Vagoraitė".split("").map((c,i)=>c===" "?<span key={i} style={{display:"inline-block",width:".26em"}}> </span>:<span className="hero-letter" key={i}>{c}</span>)}</h1>
+     <div className="taglineWrap"><div className="taglineRun"><p>{"thinking world into images".split(" ").map((w,i)=><span className="hero-word" key={i} style={{marginRight:".32em"}}>{w}</span>)}</p><p aria-hidden="true">thinking world into images</p><p aria-hidden="true">thinking world into images</p></div></div>
+    </div>
+   </div>
+  </div>
+  <section id="work" ref={galRef} data-section="sage" className="workband hgal">
+   <div className="hstage">
+    <div className="htrack" ref={trackRef}>
+     {WORK.map(w=>(
+      <div className="hitem" key={w.title}>
+       <button className="zoomcard" onClick={()=>setOpen(w)} aria-label={w.title}>
+        <div className="zoomclip"><ImageFrame ratio="1 / 1" fill="var(--paper-deep)" alt={w.title}/></div>
+       </button>
+      </div>))}
+    </div>
+   </div>
+  </section>
+  <section className="page ftbounce" data-section="sage" style={{paddingTop:128,paddingBottom:160,background:"var(--surface-field)",maxWidth:"none"}}>
+   <div className="grid12">
+    <div style={{gridColumn:"1/7"}}>
+     <Label rule>Selected work</Label>
+     <h2 style={{fontSize:56,lineHeight:1.02,letterSpacing:"-0.02em",margin:"24px 0 0"}}>Text goes here.</h2>
+    </div>
+    <p style={{gridColumn:"8/-1",alignSelf:"end",margin:0,color:"var(--ink-60)"}}>Room for a paragraph — send me the copy and I'll set it.</p>
+   </div>
+  </section>
+  <WorkSheet item={open} close={()=>setOpen(null)} go={go}/>
+ </div>);
+}
+
+function Work({go}){
+ return (<div data-section="terracotta" className="page">
+  <Nav page="work" go={go}/>
+  <div className="grid12" style={{marginBottom:96}}>
+   <div style={{gridColumn:"1/8"}}>
+    <Label rule>Selected work</Label>
+    <h1 style={{fontSize:72,lineHeight:1,letterSpacing:"-0.02em",margin:"24px 0 0"}}>Books, magazines and people <em>getting married.</em></h1>
+   </div>
+   <p style={{gridColumn:"9/-1",alignSelf:"end",margin:0,color:"var(--ink-60)"}}>Six pieces from the last three years. Most started on paper and ended up printed on something uncoated.</p>
+  </div>
+  <div className="workgrid">
+   {WORK.map(w=>(
+    <button key={w.title} className="zoomcard" onClick={()=>go("project",w)}>
+     <div className="zoomclip"><ImageFrame ratio="1 / 1" fill="var(--paper-deep)" alt={w.title}/></div>
+     <div style={{marginTop:16}}><Label>{w.meta}</Label>
+      <h3 style={{fontSize:28,lineHeight:1.1,margin:"8px 0 0"}}>{w.title}</h3></div>
+    </button>))}
+  </div>
+ </div>);
+}
+
+function ProjectBody({w,smallText,go}){
+ return (<div className="page" style={{paddingTop:0}}>
+  <div className="grid12" style={{rowGap:96}}>
+   <div style={{gridColumn:"1/3"}}><p style={smallText}>{w.text}</p></div>
+   <div style={{gridColumn:"3/-1"}}>
+    <ImageFrame ratio="16 / 9" fill="var(--paper-deep)" alt={w.title}/>
+    <div style={{marginTop:16}}><Caption credit={w.client}>{w.title}</Caption></div>
+   </div>
+
+   <div style={{gridColumn:"1/5"}}><ImageFrame ratio="1 / 1" fill="var(--paper-deep)" alt="Detail"/></div>
+   <div style={{gridColumn:"5/9"}}><ImageFrame ratio="1 / 1" fill="var(--paper-deep)" alt="Detail"/></div>
+   <div style={{gridColumn:"10/-1",alignSelf:"end"}}><Label>Process</Label>
+    <p style={{...smallText,marginTop:16}}>Room for two or three sentences about how this one was made — send the copy and I'll set it.</p></div>
+
+   <div style={{gridColumn:"1/3"}}><Label>Materials</Label>
+    <p style={{...smallText,marginTop:16}}>Gouache and pastel on rough paper. Printed uncoated.</p></div>
+   <div style={{gridColumn:"3/8"}}><ImageFrame ratio="3 / 4" fill="var(--paper-deep)" alt="Spread"/></div>
+   <div style={{gridColumn:"8/-1"}}><ImageFrame ratio="3 / 4" fill="var(--paper-deep)" alt="Spread"/></div>
+
+   <div style={{gridColumn:"1/9"}}><ImageFrame ratio="16 / 10" fill="var(--paper-deep)" alt="Final piece"/>
+    <div style={{marginTop:16}}><Caption credit="Photograph pending">{w.title}, final piece</Caption></div></div>
+   <div style={{gridColumn:"10/-1",alignSelf:"end"}}>
+    <Button variant="secondary" onClick={()=>go("work")}>← Back to work gallery</Button>
+    <p style={{...smallText,marginTop:24}}>Or keep scrolling to the next project.</p>
+   </div>
+  </div>
+ </div>);
+}
+
+function Project({item,go}){
+ const start=Math.max(0,WORK.findIndex(x=>x.title===(item||WORK[0]).title));
+ const wrapRef=useRef(null);
+ const smallText={font:"300 14px/1.6 'Hanken Grotesk',Arial,sans-serif",color:"var(--ink-60)",margin:0};
+ useEffect(()=>{
+  if(!window.gsap||!window.ScrollTrigger)return;
+  const ctx=gsap.context(()=>{
+   gsap.utils.toArray(".ppanel").forEach(panel=>{
+    const cover=panel.querySelector(".pcover");
+    ScrollTrigger.create({trigger:panel,start:"top top",end:()=>"+="+Math.max(1,panel.offsetHeight-window.innerHeight),pin:cover,pinSpacing:false,invalidateOnRefresh:true,anticipatePin:1});
+    gsap.to(cover,{opacity:0,scale:.96,ease:"none",scrollTrigger:{trigger:panel,start:"top top",end:()=>"+="+window.innerHeight*.8,scrub:.4,invalidateOnRefresh:true}});
+   });
+  },wrapRef);
+  const jump=()=>{
+   ScrollTrigger.refresh();
+   const el=wrapRef.current.querySelectorAll(".ppanel")[start];
+   if(el)window.scrollTo(0,el.offsetTop);
+  };
+  const t=setTimeout(jump,250);
+  const onScroll=()=>{
+   const max=document.documentElement.scrollHeight-window.innerHeight;
+   if(max>0&&window.scrollY>=max-2){window.scrollTo(0,1);ScrollTrigger.refresh()}
+  };
+  window.addEventListener("scroll",onScroll,{passive:true});
+  return()=>{clearTimeout(t);window.removeEventListener("scroll",onScroll);ctx.revert()};
+ },[start]);
+ return (<div ref={wrapRef} data-section="terracotta">
+  <div className="page" style={{paddingBottom:0}}><Nav page="work" go={go}/></div>
+  {WORK.map((w,i)=>(
+   <article className="ppanel" key={w.title}>
+    <div className="pcover">
+     <div className="pcover-in">
+      <div style={{gridColumn:"1/6"}}>
+       <div style={{font:"400 clamp(96px,13vw,180px)/0.86 'Instrument Serif',Georgia,serif",letterSpacing:"-0.03em",color:"var(--ink-38)",marginBottom:24}}>{String(i+1).padStart(2,"0")}</div>
+       <Label rule>{w.meta}</Label>
+       <h1 style={{fontSize:64,lineHeight:1.02,letterSpacing:"-0.02em",margin:"24px 0 24px"}}>{w.title}</h1>
+       <p style={smallText}>{w.client}</p>
+      </div>
+      <div style={{gridColumn:"7/-1"}}><ImageFrame ratio="4 / 3" fill="var(--paper-deep)" alt={w.title}/></div>
+     </div>
+    </div>
+    <ProjectBody w={w} smallText={smallText} go={go}/>
+   </article>))}
+  <section className="page" style={{paddingTop:0,paddingBottom:0}}></section>
+ </div>);
+}
+
+function About({go}){
+ return (<div data-section="sage" className="page">
+  <Nav page="about" go={go}/>
+  <section className="grid12" style={{alignItems:"start",marginBottom:128}}>
+   <div style={{gridColumn:"1/7"}}>
+    <Label rule>About</Label>
+    <h1 style={{fontSize:64,lineHeight:1.02,letterSpacing:"-0.02em",margin:"24px 0 32px"}}>I draw in Vilnius.</h1>
+    <p style={{font:"300 22px/1.5 'Hanken Grotesk',Arial,sans-serif",maxWidth:"38ch",margin:"0 0 24px"}}>I make illustration, book covers, identities and wedding stationery. Gouache and pastel on rough paper, then whatever the printer allows.</p>
+    <p style={{maxWidth:"62ch",margin:"0 0 20px",color:"var(--ink-60)"}}>I studied graphic design and never quite stopped drawing, so the two ended up in the same practice. A cover usually begins as one small painting and gets thrown away twice before it is right.</p>
+    <p style={{maxWidth:"62ch",margin:"0 0 32px",color:"var(--ink-60)"}}>Outside commissions I run The Chips Critics Club with a friend. One bag a week, notes taken far too seriously.</p>
+    <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+     <Tag tone="outline">Illustration</Tag><Tag tone="outline">Book covers</Tag><Tag tone="outline">Identity</Tag><Tag tone="outline">Stationery</Tag>
+    </div>
+   </div>
+   <div style={{gridColumn:"8/-1"}}>
+    <ImageFrame shape="circle" alt="Austė in the studio"/>
+    <div style={{marginTop:16}}><Caption credit="Photograph pending">Austė in the studio, Vilnius</Caption></div>
+   </div>
+  </section>
+  <section className="grid12">
+   <div style={{gridColumn:"1/5"}}><Label>Clients</Label>
+    <p style={{margin:"16px 0 0",color:"var(--ink-60)"}}>Tyto alba · Kitos knygos · NARA · private commissions</p></div>
+   <div style={{gridColumn:"5/9"}}><Label>Teaching</Label>
+    <p style={{margin:"16px 0 0",color:"var(--ink-60)"}}>Illustration workshops, VDA, since 2023</p></div>
+   <div style={{gridColumn:"9/-1"}}><Label>Elsewhere</Label>
+    <p style={{margin:"16px 0 0"}}><a href="#">Instagram</a> · <a href="#">Behance</a></p></div>
+  </section>
+ </div>);
+}
+
+function Contact({go}){
+ return (<div data-section="grass" className="page">
+  <Nav page="contact" go={go}/>
+  <ColorField section="grass" circle pad="96px" style={{marginBottom:64}}>
+   <div style={{textAlign:"center"}}>
+    <div style={{font:"500 12px/1.2 'Hanken Grotesk',Arial,sans-serif",letterSpacing:".16em",textTransform:"uppercase",marginBottom:16}}>Contact</div>
+    <h1 style={{fontSize:44,lineHeight:1.06,margin:"0 0 16px",maxWidth:"18ch"}}>If you have an idea, I'd love to see where we could take it.</h1>
+    <p style={{font:"300 17px/1.62 'Hanken Grotesk',Arial,sans-serif",maxWidth:"26ch",margin:"0 auto"}}>Books, covers, editorial, weddings. Tell me the deadline early.</p>
+   </div>
+  </ColorField>
+  <section className="grid12">
+   <div style={{gridColumn:"1/5"}}><Label>Email</Label>
+    <p style={{font:"400 28px/1.2 'Instrument Serif',Georgia,serif",margin:"16px 0 0"}}><a href="mailto:labas@4ustre.lt">labas@4ustre.lt</a></p></div>
+   <div style={{gridColumn:"5/9"}}><Label>Studio</Label>
+    <p style={{margin:"16px 0 0",color:"var(--ink-60)"}}>Vilnius, Lithuania<br/>Visits by arrangement</p></div>
+   <div style={{gridColumn:"9/-1"}}><Label>Now</Label>
+    <p style={{margin:"16px 0 24px",color:"var(--ink-60)"}}>Taking commissions from October.</p>
+    <Button variant="primary" as="a" href="mailto:labas@4ustre.lt">Send it</Button></div>
+  </section>
+ </div>);
+}
+
+function App(){
+ const [page,setPage]=useState("home");
+ const [item,setItem]=useState(null);
+ const go=(p,it)=>{setPage(p);if(it!==undefined)setItem(it);window.scrollTo(0,0)};
+ if(page==="project")return <Project item={item} go={go}/>;
+ const P={home:Home,work:Work,about:About,contact:Contact}[page];
+ return <P go={go}/>;
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>

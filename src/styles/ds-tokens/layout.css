@@ -1,0 +1,38 @@
+/* 4ustre layout. 12 columns, 32px gutters, wide margins, one idea per surface.
+   Three recurring arrangements, provided as classes:
+     .arr-text-bleed  text left, image bleeding off the right edge
+     .arr-circle      a circle holding an image or title on a flat colour field
+     .arr-bleed-cap   full-bleed image over two thirds, caption beneath */
+:root {
+  --grid-columns: 12; /* @kind other */
+  --grid-gutter: 32px;
+  --margin-page: 96px;
+  --margin-page-wide: 160px;
+  --margin-page-narrow: 24px;
+  --content-max: 1440px;
+
+  --logo-min-digital: 32px;
+  --logo-clearspace: 0.18em; /* @kind other */  /* the height of the creature's ear, relative to mark size */
+  --motion-ease: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --motion-fast: 140ms; /* @kind other */
+  --motion-base: 240ms; /* @kind other */
+  --motion-slow: 420ms; /* @kind other */
+}
+
+.page { max-width: var(--content-max); margin: 0 auto; padding: 0 var(--margin-page); }
+.grid12 { display: grid; grid-template-columns: repeat(var(--grid-columns), 1fr); gap: var(--grid-gutter); }
+
+.arr-text-bleed { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--grid-gutter); align-items: center; }
+.arr-text-bleed > :first-child { grid-column: 1 / 6; }
+.arr-text-bleed > :last-child { grid-column: 7 / -1; margin-right: calc(var(--margin-page) * -1); }
+
+.arr-circle { display: grid; place-items: center; padding: var(--pad-field); background: var(--surface-field); }
+.arr-circle > * { border-radius: var(--radius-circle); overflow: hidden; aspect-ratio: 1; }
+
+.arr-bleed-cap > :first-child { aspect-ratio: 3 / 2; width: 100%; }
+.arr-bleed-cap > :last-child { margin-top: var(--space-4); max-width: 44ch; }
+
+@media (max-width: 900px) {
+  .page { padding: 0 var(--margin-page-narrow); }
+  .arr-text-bleed > :first-child, .arr-text-bleed > :last-child { grid-column: 1 / -1; margin-right: 0; }
+}

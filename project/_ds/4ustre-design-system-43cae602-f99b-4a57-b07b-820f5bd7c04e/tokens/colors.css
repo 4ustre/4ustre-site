@@ -1,0 +1,67 @@
+/* 4ustre colour. Every value is sampled from a finished painting; nothing is invented.
+   Mix per surface: ~60% paper, ~22% one section colour, ~12% ink, ~6% accent.
+   One section colour per piece, never two. Marigold and poppy stay small. */
+:root {
+  /* Base palette */
+  --paper: #F4EEE4;
+  --ink: #241E1B;
+  --oyster-rose: #93495B;
+  --deep-grass: #2A7A35;
+  --night-plum: #2A1055;
+  --sage: #A6B57C;
+  --cornflower: #7A93D6;
+  --marigold: #F2A81E;
+  --poppy: #C8452A;
+  --terracotta: #6B4A2F;
+
+  /* Paper tints — for hairlines, hovers and quiet fills only. Not new colours. */
+  --paper-deep: #EAE2D5;
+  --paper-shadow: #DED4C4;
+  --ink-60: rgba(36, 30, 27, 0.6);
+  --ink-38: rgba(36, 30, 27, 0.38);
+  --ink-14: rgba(36, 30, 27, 0.14);
+  --ink-08: rgba(36, 30, 27, 0.08);
+  --paper-24: rgba(244, 238, 228, 0.24);
+  --paper-70: rgba(244, 238, 228, 0.7);
+
+  /* Semantic aliases */
+  --surface-page: var(--paper);
+  --surface-card: var(--paper);
+  --surface-sunk: var(--paper-deep);
+  --surface-field: var(--oyster-rose);        /* the section colour of the moment */
+  --surface-inverse: var(--ink);
+
+  --text-body: var(--ink);
+  --text-display: var(--ink);
+  --text-muted: var(--ink-60);
+  --text-on-field: var(--paper);
+  --text-accent: var(--oyster-rose);
+
+  --line-hairline: var(--ink-14);
+  --line-rule: var(--ink-38);
+  --line-on-field: var(--paper-24);
+
+  --accent-primary: var(--oyster-rose);       /* the primary brand colour */
+  --accent-small: var(--marigold);            /* small marks only */
+  --accent-alarm: var(--poppy);               /* small marks only */
+
+  /* Section colours, addressable by name for one-colour-per-piece theming */
+  --section-rose: var(--oyster-rose);
+  --section-grass: var(--deep-grass);
+  --section-plum: var(--night-plum);
+  --section-sage: var(--sage);
+  --section-cornflower: var(--cornflower);
+  --section-terracotta: var(--terracotta);
+}
+
+/* Section scopes. Put one on a page, a <section> or a card; it repoints
+   --surface-field and the text colour that sits on it. Never nest two. */
+[data-section="rose"]        { --surface-field: var(--oyster-rose); --text-on-field: var(--paper); }
+[data-section="grass"]       { --surface-field: var(--deep-grass);  --text-on-field: var(--paper); }
+[data-section="plum"]        { --surface-field: var(--night-plum);  --text-on-field: var(--paper); }
+[data-section="sage"]        { --surface-field: var(--sage);        --text-on-field: var(--ink); }
+[data-section="cornflower"]  { --surface-field: var(--cornflower);  --text-on-field: var(--ink); }
+[data-section="terracotta"]  { --surface-field: var(--terracotta);  --text-on-field: var(--paper); }
+[data-section="marigold"]    { --surface-field: var(--marigold);    --text-on-field: var(--ink); }
+[data-section="poppy"]       { --surface-field: var(--poppy);       --text-on-field: var(--paper); }
+[data-section="ink"]         { --surface-field: var(--ink);         --text-on-field: var(--paper); }

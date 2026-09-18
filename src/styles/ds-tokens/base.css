@@ -1,0 +1,24 @@
+/* 4ustre base. Element defaults so any surface starts correct: cream paper,
+   ink text, grotesk body, serif headings, no underlines, left-aligned. */
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--text-body);
+  font: var(--type-body);
+  text-align: left;
+  text-wrap: pretty;
+}
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: var(--weight-regular); margin: 0; text-wrap: balance; }
+h1 { font-size: var(--size-display-2); line-height: var(--lh-display-2); letter-spacing: var(--track-display-2); }
+h2 { font-size: var(--size-title-1); line-height: var(--lh-title-1); letter-spacing: var(--track-title-1); }
+h3 { font-size: var(--size-title-2); line-height: var(--lh-title-2); }
+h4 { font-size: var(--size-title-3); line-height: var(--lh-title-3); }
+p { margin: 0 0 var(--space-5); max-width: var(--measure-text); }
+em { font-style: italic; }
+strong { font-weight: var(--weight-medium); }
+a { color: var(--text-body); text-decoration: none; border-bottom: 1px solid var(--line-rule); transition: border-color var(--motion-fast) var(--motion-ease), color var(--motion-fast) var(--motion-ease); }
+a:hover { color: var(--accent-primary); border-bottom-color: var(--accent-primary); }
+small { font-size: var(--size-caption); }
+img, svg { display: block; max-width: 100%; }
+::selection { background: var(--sage); color: var(--ink); }
