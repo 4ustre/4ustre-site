@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Austė Vagoraitė — Illustrator & Graphic Designer in Vilnius, Lithuania",
   description:
     "Illustration, book covers, brand identity and wedding stationery by Austė Vagoraitė, an illustrator and graphic designer based in Vilnius, Lithuania.",
-  metadataBase: new URL("https://4uste.com"),
+  metadataBase: new URL("https://4ustre.com"),
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -27,7 +27,7 @@ const personJsonLd = {
   "@type": "Person",
   name: "Austė Vagoraitė",
   jobTitle: "Illustrator & Graphic Designer",
-  url: "https://4uste.com/",
+  url: "https://4ustre.com/",
   address: { "@type": "PostalAddress", addressLocality: "Vilnius", addressCountry: "LT" },
   sameAs: [
     "https://www.instagram.com/4ustre/",
