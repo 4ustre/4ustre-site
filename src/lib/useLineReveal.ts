@@ -24,7 +24,6 @@ function splitLines(el: HTMLElement | null) {
 
 export function useLineReveal(scopeRef: RefObject<HTMLElement | null>, deps: unknown[]) {
   useEffect(() => {
-    if (!window.gsap) return;
     gsap.registerPlugin(ScrollTrigger);
     let ctx: gsap.Context | undefined;
     const build = () => {
