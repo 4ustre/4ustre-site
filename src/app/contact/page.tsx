@@ -1,15 +1,32 @@
+"use client";
+import { useEffect } from "react";
 import { Nav } from "@/components/Nav";
 import { ColorField } from "@/components/ds/ColorField";
 import { Button } from "@/components/ds/Button";
 import { Social } from "@/components/Social";
 import { PageMark } from "@/components/PageMark";
 
-export const metadata = {
-  title: "Contact — Austė Vagoraitė, Illustrator & Graphic Designer in Vilnius",
-  description: "Get in touch with Austė Vagoraitė, illustrator and graphic designer in Vilnius, Lithuania, for illustration, brand identity and wedding stationery projects.",
-};
-
 export default function ContactPage() {
+  useEffect(() => {
+    // iOS Safari's 100dvh doesn't reliably track the address bar's real
+    // height on every device/version, so measure the actual visible
+    // viewport with JS and drive the page height from that instead.
+    const vv = window.visualViewport;
+    const setVH = () => {
+      const h = vv ? vv.height : window.innerHeight;
+      document.documentElement.style.setProperty("--vh100", `${h}px`);
+    };
+    setVH();
+    vv?.addEventListener("resize", setVH);
+    window.addEventListener("resize", setVH);
+    window.addEventListener("orientationchange", setVH);
+    return () => {
+      vv?.removeEventListener("resize", setVH);
+      window.removeEventListener("resize", setVH);
+      window.removeEventListener("orientationchange", setVH);
+    };
+  }, []);
+
   return (
     <div
       data-section="sage"
