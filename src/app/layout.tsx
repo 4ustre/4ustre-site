@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     siteName: "Austė Vagoraitė",
     title: "Austė Vagoraitė — Illustrator & Graphic Designer in Vilnius, Lithuania",
     description: "Illustration, book covers, brand identity and wedding stationery by Austė Vagoraitė, an illustrator and graphic designer in Vilnius, Lithuania.",
-    images: ["/images/work/kukutis_crop_home2_png.jpg"],
     url: "/",
   },
   twitter: {
