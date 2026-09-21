@@ -117,7 +117,7 @@ export default function Home() {
         </div>
         <div className="heroStack" style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", gap: 40, position: "relative", zIndex: 10 }}>
           <div className="hero-logo">
-            <Logo variant="mark" size={188} tone="var(--sage)" />
+            <Logo variant="mark" size={188} />
           </div>
           <div>
             <h1 className="heroName" style={{ fontSize: 88, lineHeight: 0.98, letterSpacing: "-0.02em", margin: "-.24em 0 0", overflow: "hidden", padding: ".24em 0 .2em" }}>

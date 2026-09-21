@@ -72,7 +72,7 @@ export default function ContactPage() {
           </div>
         </div>
       </ColorField>
-      <PageMark tone="paper" style={{ padding: "48px 0" }} />
+      <PageMark tone="paper" style={{ marginTop: "clamp(16px, 6vw, 64px)", padding: "clamp(16px, 4vw, 48px) 0" }} />
     </div>
   );
 }
