@@ -1,6 +1,6 @@
 /* 4ustre base. Element defaults so any surface starts correct: cream paper,
    ink text, grotesk body, serif headings, no underlines, left-aligned. */
-html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; width: 100%; }
 body {
   margin: 0;
   background: var(--surface-page);
@@ -8,6 +8,8 @@ body {
   font: var(--type-body);
   text-align: left;
   text-wrap: pretty;
+  overflow-x: hidden;
+  width: 100%;
 }
 h1, h2, h3, h4 { font-family: var(--font-display); font-weight: var(--weight-regular); margin: 0; text-wrap: balance; }
 h1 { font-size: var(--size-display-2); line-height: var(--lh-display-2); letter-spacing: var(--track-display-2); }
