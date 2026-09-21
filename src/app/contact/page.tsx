@@ -14,7 +14,7 @@ export default function ContactPage() {
     <div
       data-section="sage"
       className="contactPage grain grain--field"
-      style={{ background: "var(--sage)", minHeight: "100vh", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}
+      style={{ background: "var(--sage)", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}
     >
       <div className="page" style={{ paddingBottom: 0, width: "100%", boxSizing: "border-box" }}>
         <Nav page="contact" logoTone="cream" />

@@ -49,7 +49,13 @@ export function useLineReveal(scopeRef: RefObject<HTMLElement | null>, deps: unk
     };
     const raf = requestAnimationFrame(() => requestAnimationFrame(build));
     let tm: ReturnType<typeof setTimeout>;
+    let lastWidth = window.innerWidth;
     const onResize = () => {
+      // Mobile browsers fire resize when the address bar shows/hides while
+      // scrolling; that only changes height, so ignore it and rebuild only
+      // on an actual width change (real resize or orientation change).
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
       clearTimeout(tm);
       tm = setTimeout(build, 250);
     };

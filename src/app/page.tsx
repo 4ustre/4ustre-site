@@ -117,7 +117,7 @@ export default function Home() {
         </div>
         <div className="heroStack" style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", gap: 40, position: "relative", zIndex: 10 }}>
           <div className="hero-logo">
-            <Logo variant="mark" size={188} />
+            <Logo variant="mark" size={188} tone="var(--sage)" />
           </div>
           <div>
             <h1 className="heroName" style={{ fontSize: 88, lineHeight: 0.98, letterSpacing: "-0.02em", margin: "-.24em 0 0", overflow: "hidden", padding: ".24em 0 .2em" }}>
@@ -159,7 +159,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="page ftbounce" style={{ paddingTop: 128, paddingBottom: 48 }}>
+      <section className="page ftbounce" style={{ paddingTop: "clamp(48px, 10vw, 128px)", paddingBottom: "clamp(24px, 6vw, 48px)" }}>
         <div className="grid12">
           <div style={{ gridColumn: "1/7" }}>
             <h2 className="scrambleTitle" style={{ fontSize: 56, lineHeight: 1.02, letterSpacing: "-0.02em", margin: "24px 0 0", width: 700, height: 58 }}>
@@ -171,7 +171,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <PageMark />
+      <PageMark style={{ marginTop: "clamp(24px, 8vw, 64px)" }} />
       <WorkSheet item={open} close={() => setOpen(null)} />
     </div>
   );
