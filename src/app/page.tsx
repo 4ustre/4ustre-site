@@ -128,13 +128,13 @@ export default function Home() {
         </div>
         <div className="heroStack" style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", gap: 40, position: "relative", zIndex: 10 }}>
           <div className="hero-logo">
-            <Logo variant="mark" size={188} />
+            <Logo variant="mark" size={188} tone="cream" />
           </div>
           <div>
-            <h1 className="heroName" style={{ fontSize: 88, lineHeight: 0.98, letterSpacing: "-0.02em", margin: "-.24em 0 0", overflow: "hidden", padding: ".24em 0 .2em" }}>
+            <h1 className="heroName" style={{ fontSize: 88, lineHeight: 0.98, letterSpacing: "-0.02em", margin: "-.24em 0 0", overflow: "hidden", padding: ".24em 0 .2em", color: "var(--paper)" }}>
               Austė Vagoraitė
             </h1>
-            <p className="heroTag" style={{ font: "300 22px/1.5 'Hanken Grotesk', Arial, sans-serif", margin: "20px 0 0", color: "var(--ink-60)" }}>
+            <p className="heroTag" style={{ font: "300 22px/1.5 'Hanken Grotesk', Arial, sans-serif", margin: "20px 0 0", color: "var(--paper-70)" }}>
               {"thinking world into images".split(" ").map((w, i) => (
                 <span className="hero-word" key={i} style={{ marginRight: ".32em" }}>{w}</span>
               ))}
@@ -181,16 +181,16 @@ export default function Home() {
         <section className="page ftbounce" style={{ paddingTop: "clamp(48px, 10vw, 128px)", paddingBottom: "clamp(24px, 6vw, 48px)" }}>
           <div className="grid12">
             <div style={{ gridColumn: "1/7" }}>
-              <h2 className="scrambleTitle" style={{ fontSize: 56, lineHeight: 1.02, letterSpacing: "-0.02em", margin: "24px 0 0", width: 700, height: 58 }}>
+              <h2 className="scrambleTitle" style={{ fontSize: 56, lineHeight: 1.02, letterSpacing: "-0.02em", margin: "24px 0 0", width: 700, height: 58, color: "var(--paper)" }}>
                 Meaning lives only where we put it!
               </h2>
               <div style={{ marginTop: 32 }}>
-                <Social />
+                <Social tone="paper" />
               </div>
             </div>
           </div>
         </section>
-        <PageMark style={{ marginTop: "clamp(24px, 8vw, 64px)" }} />
+        <PageMark tone="paper" style={{ marginTop: "clamp(24px, 8vw, 64px)" }} />
       </div>
       <WorkSheet item={open} close={() => setOpen(null)} />
     </div>
