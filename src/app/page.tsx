@@ -106,7 +106,18 @@ export default function Home() {
         ref={heroRef}
         className="heroRoot"
         data-section="rose"
-        style={{ minHeight: "100vh", display: "flex", flexDirection: "column", padding: "48px 96px 64px", boxSizing: "border-box", position: "relative" }}
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          padding: "48px 96px 64px",
+          boxSizing: "border-box",
+          position: "relative",
+          backgroundImage: "url(/images/bg-rose-texture.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
       >
         <div className="heroNavWrap" style={{ display: "flex", justifyContent: "center", position: "relative", zIndex: 10 }}>
           <nav className="navlinks">
@@ -159,19 +170,28 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="page ftbounce" style={{ paddingTop: "clamp(48px, 10vw, 128px)", paddingBottom: "clamp(24px, 6vw, 48px)" }}>
-        <div className="grid12">
-          <div style={{ gridColumn: "1/7" }}>
-            <h2 className="scrambleTitle" style={{ fontSize: 56, lineHeight: 1.02, letterSpacing: "-0.02em", margin: "24px 0 0", width: 700, height: 58 }}>
-              Meaning lives only where we put it!
-            </h2>
-            <div style={{ marginTop: 32 }}>
-              <Social />
+      <div
+        style={{
+          backgroundImage: "url(/images/bg-rose-texture.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <section className="page ftbounce" style={{ paddingTop: "clamp(48px, 10vw, 128px)", paddingBottom: "clamp(24px, 6vw, 48px)" }}>
+          <div className="grid12">
+            <div style={{ gridColumn: "1/7" }}>
+              <h2 className="scrambleTitle" style={{ fontSize: 56, lineHeight: 1.02, letterSpacing: "-0.02em", margin: "24px 0 0", width: 700, height: 58 }}>
+                Meaning lives only where we put it!
+              </h2>
+              <div style={{ marginTop: 32 }}>
+                <Social />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <PageMark style={{ marginTop: "clamp(24px, 8vw, 64px)" }} />
+        </section>
+        <PageMark style={{ marginTop: "clamp(24px, 8vw, 64px)" }} />
+      </div>
       <WorkSheet item={open} close={() => setOpen(null)} />
     </div>
   );
